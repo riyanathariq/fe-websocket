@@ -3,25 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WebSocket Notifications</title>
+    <title>WebSocket Private Messages</title>
     <script defer src="app.js"></script>
-    <script>
-        // Meminta izin notifikasi saat halaman dimuat
-        document.addEventListener("DOMContentLoaded", () => {
-            if (Notification.permission !== "granted") {
-                Notification.requestPermission();
-            }
-        });
-    </script>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="flex items-center justify-center min-h-screen bg-gray-100">
 <div class="w-full max-w-md p-6 bg-white shadow-lg rounded-xl">
-    <h2 class="text-xl font-semibold text-center mb-4">📢 WebSocket Notifications</h2>
+    <h2 class="text-xl font-semibold text-center mb-4">🔒 WebSocket Private Messages</h2>
 
-    <!-- Container untuk notifikasi -->
-    <div id="notifications" class="space-y-2">
-        <p class="text-gray-500 text-sm text-center">Menunggu notifikasi...</p>
+    <div class="mb-4">
+        <input id="userID" type="text" placeholder="Enter your User ID" class="w-full p-2 border rounded">
+    </div>
+
+    <button onclick="connectWebSocket()" class="w-full bg-blue-500 text-white py-2 rounded">
+        Connect WebSocket
+    </button>
+
+    <div id="notifications" class="mt-4 space-y-2">
+        <p class="text-gray-500 text-sm text-center">Menunggu pesan...</p>
     </div>
 </div>
 </body>
